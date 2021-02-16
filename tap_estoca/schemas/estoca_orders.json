@@ -1,0 +1,141 @@
+{
+    "type": ["null", "object"],
+    "properties": {
+        "id":{
+            "type": ["null","string"],
+            "format":"uuid"
+        },
+        "created_at":{
+            "type":["null","string"],
+            "format":"date-time"
+        },
+        "customer_full_address":{
+            "type":["null","string"]
+        },
+        "customer_name": {
+            "type":["null","string"]
+        },
+        "delivery_full_address":{
+            "type":["null","string"]
+        },
+        "delivery_name":{
+            "type":["null","string"]
+        },
+        "erp_marketplace_id":{
+            "type":["null","string"]
+        },
+        "external_id":{
+            "type":["null","string"]
+        },
+        "handoff_finished_at": {
+            "type":["null","string"],
+            "format":"date-time"
+        },
+        "handoff_idle_time": {
+            "type":["null","string"]
+        },
+        "has_extra_packaging": {
+            "type":["null","boolean"]
+        },
+        "holded_at": {
+            "type":["null","string"],
+            "format":"date-time"
+        },
+        "human_id": {
+            "type":["null","string"]
+        },
+        "invoice_access_key": {
+            "type":["null","string"]
+        },
+        "invoice_number": {
+            "type":["null","string"]
+        },
+        "invoice_serie": {
+            "type":["null","string"]
+        },
+        "is_manual_order": {
+            "type":["null","boolean"]
+        },
+        "is_quarantine": {
+            "type":["null","boolean"]
+        },
+        "is_same_day_delivery": {
+            "type":["null","boolean"]
+        },
+        "marketplace_name": {
+            "type":["null","string"]
+        },
+        "operator_name": {
+            "type":["null","string"]
+        },
+        "order_price": {
+            "type":["null","number"]
+        },
+        "packing_finished_at": {
+            "type":["null","string"],
+            "format":"date-time"
+        },
+        "packing_idle_time": {
+            "type":["null","string"]
+        },
+        "packing_packer_name": {
+            "type":["null","string"]
+        },
+        "packing_started_at": {
+            "type":["null","string"],
+            "format":"date-time"
+        },
+        "packing_total_time": {
+            "type":["null","number"]
+        },
+        "picking_finished_at":{
+            "type":["null","string"],
+            "format":"date-time"
+        },
+        "picking_idle_time":{
+            "type":["null","number"]
+        },
+        "picking_picker_name": {
+            "type":["null","string"]
+        },
+        "picking_started_at": {
+            "type":["null","string"],
+            "format":"date-time"
+        },
+        "picking_total_time": {
+            "type":["null","number"]
+        },
+        "quarantine_comment": {
+            "type":["null","string"]
+        },
+        "service_name": {
+            "type":["null","string"]
+        },
+        "status": {
+            "type":["null","string"]
+        },
+        "store_id": {
+            "type": ["null","string"],
+            "format":"uuid"
+        },
+        "store_name": {
+            "type": ["null","string"]
+        },
+        "total_items": {
+            "type": ["null","number"]
+        },
+        "total_skus": {
+            "type": ["null","integer"]
+        },
+        "transporter": {
+            "type": ["null","string"]
+        },
+        "updated_at": {
+            "type":["null","string"],
+            "format":"date-time"
+        },
+        "warehouse_name": {
+            "type": ["null","string"]
+        }
+    }
+}
