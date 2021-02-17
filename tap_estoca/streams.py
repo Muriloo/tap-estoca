@@ -38,7 +38,7 @@ class Orders(Stream):
         endDate = datetime.strftime(extraction_time,API_REQ_DATE_FORMAT)
         
         # get orders from API and iterate over results
-        for record in self.client.get_orders(startDate,endDate):
+        for record in self.client.get_orders(startDate,endDate,stream_schema):
             
             transformed_record = transform(transformer, record, stream_schema, stream_metadata)
 

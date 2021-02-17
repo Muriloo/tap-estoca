@@ -14,52 +14,9 @@ class EstocaClient():
 
        
     
-    def get_orders(self,startDate,endDate):
+    def get_orders(self,startDate,endDate,stream_schema):
 
-        columns = [
-            "id",
-            "created_at",
-            "customer_full_address",
-            "customer_name",
-            "delivery_full_address",
-            "delivery_name",
-            "erp_marketplace_id",
-            "external_id",
-            "handoff_finished_at",
-            "handoff_idle_time",
-            "has_extra_packaging",
-            "holded_at",
-            "human_id",
-            "invoice_access_key",
-            "invoice_number",
-            "invoice_serie",
-            "is_manual_order",
-            "is_quarantine",
-            "is_same_day_delivery",
-            "marketplace_name",
-            "operator_name",
-            "order_price",
-            "packing_finished_at",
-            "packing_idle_time",
-            "packing_packer_name",
-            "packing_started_at",
-            "packing_total_time",
-            "picking_finished_at",
-            "picking_idle_time",
-            "picking_picker_name",
-            "picking_started_at",
-            "picking_total_time",
-            "quarantine_comment",
-            "service_name",
-            "status",
-            "store_id",
-            "store_name",
-            "total_items",
-            "total_skus",
-            "transporter",
-            "updated_at",
-            "warehouse_name"
-        ]
+        columns = ",".join(stream_schema['properties'].keys())
 
         api_params = {
             'startDate': startDate,
@@ -69,6 +26,9 @@ class EstocaClient():
             'storeID': self.config['storeID']
         }
         
+        LOGGER.info("Requesting URL: {0} | startDate: {1} , endDate: {2}".format(
+            self.api_url,startDate,endDate))
+        LOGGER.info("Requesting Columns: {0}".format(columns))
         req = requests.get(url=self.api_url,params=api_params)
         
         if req.status_code != 200:
