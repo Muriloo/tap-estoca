@@ -15,13 +15,14 @@ class EstocaClient():
        
     
     def get_orders(self,startDate,endDate,stream_schema):
+        """Get Estoca orders from API."""
 
+        # define the request parameters
         columns = ",".join(stream_schema['properties'].keys())
-
         api_params = {
             'startDate': startDate,
             'endDate': endDate,
-            'columns': ",".join(columns),
+            'columns': columns,
             'api_key': self.config['api_key'],
             'storeID': self.config['storeID']
         }
@@ -30,7 +31,8 @@ class EstocaClient():
             self.api_url,startDate,endDate))
         LOGGER.info("Requesting Columns: {0}".format(columns))
         req = requests.get(url=self.api_url,params=api_params)
-        
+
+        # handle request errors
         if req.status_code != 200:
             LOGGER.error("Error Code: {0}, {1}".format(
                 req.status_code,req.content))
@@ -38,9 +40,11 @@ class EstocaClient():
 
         resp = req.json()
         
+        # as most errors return status 200, the response is parsed to verify the results
         if 'data' in resp:
-            if resp['data'] is None:
-                LOGGER.error("Invalid request. Please check the parameters used.")
+            if resp['data'] is None or resp['data'] == []:
+                LOGGER.error("Invalid request. Please check the parameters used. Response: {}"\
+                    .format(resp))
                 sys.exit(1)
         else:
             LOGGER.error("Invalid request. Please check the parameters used.")
